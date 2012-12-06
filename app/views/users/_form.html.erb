@@ -1,0 +1,14 @@
+<%= simple_form_for(@user) do |f| %>
+
+    <%= f.input :name %>
+
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+
+    <%= f.input :accepted_terms, as: :boolean %>
+    <%= f.input :send_password_to, label: "Optionally, send the password to this email", as: :string %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+<%= simple_form_for(@post) do |f| %>
+
+    <%= f.input :title %>
+
+    <%= f.input :body %>
+
+    <%= f.association :user %>
+
+    <%= f.simple_fields_for :comments do |c| %>
+        <%= c.input :body, label: "Post_Comment", input_html: {style: "height: 60px;"} %>
+    <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

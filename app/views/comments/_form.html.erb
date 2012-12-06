@@ -1,0 +1,11 @@
+<%= simple_form_for(@comment) do |f| %>
+
+    <%= f.input :body, label: "New Comment", input_html: {style: "height: 60px;"} %>
+
+    <%= f.input :post_id, as: :hidden, input_html: {value: @comment.post_id} %>
+    <%= f.input :user_id, as: :hidden, input_html: {value: @comment.user_id} %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
