@@ -57,10 +57,18 @@
 
 <div class="container" style="padding-top: 50px;">
   <div class="row">
-    <div class="span9">
+    <div class="span8">
+      <% flash.each do |name, msg| %>
+          <% if msg.is_a?(String) %>
+              <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+                <a class="close" data-dismiss="alert">&#215;</a>
+                <%= content_tag :div, msg, :id => "flash_#{name}" %>
+              </div>
+          <% end %>
+      <% end %>
       <%= yield %>
     </div>
-    <div class="span3">
+    <div class="span4">
       <div class="well sidebar-nav">
         <h3>Sidebar</h3>
         <ul class="nav nav-list">
@@ -68,6 +76,7 @@
           <li><%= link_to "Users", "/users"  %></li>
           <li><%= link_to "Posts", "/posts"  %></li>
         </ul>
+        <%= yield(:sidebar) %>
       </div><!--/.well -->
     </div><!--/span-->
   </div><!--/row-->
